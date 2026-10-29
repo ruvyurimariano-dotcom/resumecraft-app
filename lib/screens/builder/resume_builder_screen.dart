@@ -47,7 +47,7 @@ class _ResumeBuilderScreenState extends State<ResumeBuilderScreen> {
 
     return PopScope(
       canPop: true,
-      onPopInvokedWithResult: (didPop, result) {
+      onPopInvoked: (didPop) {
         provider.forceSave();
       },
       child: Scaffold(
