@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ResumeCraft - Android Mobile Application</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body class="theme-light">
+  <!-- Desktop Simulator Toolbar -->
+  <div class="simulator-toolbar">
+    <div class="sim-brand">
+      <span class="material-symbols-rounded">description</span>
+      <span><strong>ResumeCraft</strong> Android Mobile</span>
+    </div>
+    <div class="sim-actions">
+      <button id="btn-fullscreen" class="sim-btn" title="Toggle Native Fullscreen (F)">
+        <span class="material-symbols-rounded">fullscreen</span>
+        <span>Full Screen</span>
+      </button>
+      <button id="btn-toggle-frame" class="sim-btn" title="Toggle Hardware Chassis Border">
+        <span class="material-symbols-rounded">smartphone</span>
+        <span>Chassis</span>
+      </button>
+      <button id="btn-replay-splash" class="sim-btn" title="Replay Animated Splash Screen">
+        <span class="material-symbols-rounded">play_circle</span>
+        <span>Replay Splash</span>
+      </button>
+      <button id="btn-toggle-theme" class="sim-btn" title="Toggle Light/Dark Theme">
+        <span class="material-symbols-rounded">dark_mode</span>
+        <span>Dark Theme</span>
+      </button>
+      <button id="btn-restart-app" class="sim-btn" title="Restart Application">
+        <span class="material-symbols-rounded">restart_alt</span>
+        <span>Restart</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Device Container Wrapper -->
+  <main class="device-wrapper">
+    <div class="phone-frame" id="phone-frame">
+      <!-- Android Punch Hole & Status Bar -->
+      <header class="android-status-bar">
+        <span class="status-time" id="status-time">9:41</span>
+        <div class="camera-punchhole"></div>
+        <div class="status-icons">
+          <span class="material-symbols-rounded">wifi</span>
+          <span class="material-symbols-rounded">signal_cellular_4_bar</span>
+          <span class="material-symbols-rounded">battery_full</span>
+        </div>
+      </header>
+
+      <!-- App Screen Viewport -->
+      <div class="app-viewport" id="app-viewport">
+
+        <!-- 1. SPLASH SCREEN -->
+        <section id="screen-splash" class="app-screen active" title="Tap anywhere to skip">
+          <!-- Ambient Glowing Atmosphere -->
+          <div class="splash-ambient-bg">
+            <div class="splash-orb splash-orb-1"></div>
+            <div class="splash-orb splash-orb-2"></div>
+            <div class="splash-orb splash-orb-3"></div>
+            <div class="splash-grid-pattern"></div>
+          </div>
+
+          <div class="splash-content">
+            <!-- Animated Centerpiece with Radar Rings -->
+            <div class="splash-hero-container">
+              <div class="splash-pulse-ring ring-1"></div>
+              <div class="splash-pulse-ring ring-2"></div>
+              <div class="splash-pulse-ring ring-3"></div>
+
+              <div class="splash-logo-card">
+                <div class="splash-card-glare"></div>
+                <!-- Stylized Mini Resume Graphics -->
+                <div class="splash-resume-sheet">
+                  <div class="splash-sheet-header">
+                    <div class="splash-sheet-avatar"></div>
+                    <div class="splash-sheet-name"></div>
+                  </div>
+                  <div class="splash-sheet-line full"></div>
+                  <div class="splash-sheet-line medium"></div>
+                  <div class="splash-sheet-line short"></div>
+                </div>
+
+                <!-- Animated Floating Success Badge -->
+                <div class="splash-check-badge">
+                  <span class="material-symbols-rounded">verified</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Typography & Staggered Reveal -->
+            <div class="splash-text-group">
+              <h1 class="splash-title">
+                <span class="splash-title-text">ResumeCraft</span>
+                <span class="splash-title-sparkle">✦</span>
+              </h1>
+              
+              <div class="splash-badge-pill">
+                <span class="material-symbols-rounded pill-sparkle">auto_awesome</span>
+                <span>AI-Powered • ATS-Optimized</span>
+              </div>
+
+              <p class="splash-tagline">Build a Resume. Build Your Future.</p>
+            </div>
+
+            <!-- Dynamic Animated Loader with Live Progress & Status -->
+            <div class="splash-loader-section">
+              <div class="splash-progress-track">
+                <div class="splash-progress-bar" id="splash-progress-bar">
+                  <div class="splash-progress-shimmer"></div>
+                </div>
+              </div>
+              <div class="splash-loader-meta">
+                <span class="splash-status-text" id="splash-status-text">Loading templates...</span>
+                <span class="splash-percentage" id="splash-percentage">0%</span>
+              </div>
+            </div>
+
+            <!-- Footer Badge -->
+            <div class="splash-footer">
+              <div class="splash-android-tag">
+                <span class="material-symbols-rounded">android</span>
+                <span>Crafted for Android Material 3</span>
+              </div>
+              <span class="splash-skip-hint">Tap anywhere to continue</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. ONBOARDING SCREEN -->
+        <section id="screen-onboarding" class="app-screen">
+          <div class="onboarding-header">
+            <div class="brand-pill">
+              <span class="material-symbols-rounded">description</span>
+              <span>ResumeCraft</span>
+            </div>
+            <button class="text-btn" id="btn-skip-onboarding">Skip</button>
+          </div>
+          <div class="onboarding-carousel">
+            <div class="carousel-slide active" data-slide="0">
+              <div class="illustration-circle bg-blue">
+                <span class="material-symbols-rounded">description</span>
+              </div>
+              <div class="pill-tag bg-blue-tint">Smart Templates</div>
+              <h2>Create a Professional Resume</h2>
+              <p>Build a polished resume in minutes using recruiter-tested, professionally crafted templates.</p>
+            </div>
+            <div class="carousel-slide" data-slide="1">
+              <div class="illustration-circle bg-purple">
+                <span class="material-symbols-rounded">palette</span>
+              </div>
+              <div class="pill-tag bg-purple-tint">Total Control</div>
+              <h2>Customize Your Resume</h2>
+              <p>Personalize colors, fonts, sections, and layouts that match your unique career story and style.</p>
+            </div>
+            <div class="carousel-slide" data-slide="2">
+              <div class="illustration-circle bg-green">
+                <span class="material-symbols-rounded">rocket_launch</span>
+              </div>
+              <div class="pill-tag bg-green-tint">Instant PDF & ATS</div>
+              <h2>Apply With Confidence</h2>
+              <p>Export your resume as an ATS-compliant PDF and share it with top employers worldwide.</p>
+            </div>
+          </div>
+          <div class="onboarding-indicators">
+            <span class="dot active" data-dot="0"></span>
+            <span class="dot" data-dot="1"></span>
+            <span class="dot" data-dot="2"></span>
+          </div>
+          <div class="onboarding-actions">
+            <button id="btn-next-onboarding" class="btn btn-primary btn-block">Next <span class="material-symbols-rounded">arrow_forward</span></button>
+            <button id="btn-guest-onboarding" class="btn btn-outline btn-block mt-2 hidden">Continue as Guest</button>
+          </div>
+        </section>
+
+        <!-- 3. AUTH: LOGIN SCREEN -->
+        <section id="screen-login" class="app-screen">
+          <div class="auth-container">
+            <div class="brand-square">
+              <span class="material-symbols-rounded">description</span>
+            </div>
+            <h2 class="auth-title">Welcome Back</h2>
+            <p class="auth-subtitle">Log in to continue crafting your standout resume.</p>
+
+            <form id="form-login" class="auth-form" onsubmit="event.preventDefault();">
+              <div class="input-group">
+                <label>Email Address *</label>
+                <div class="input-field">
+                  <span class="material-symbols-rounded prefix">mail</span>
+                  <input type="email" id="login-email" value="alex.morgan@example.com" required placeholder="name@example.com">
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Password *</label>
+                <div class="input-field">
+                  <span class="material-symbols-rounded prefix">lock</span>
+                  <input type="password" id="login-password" value="Password123!" required placeholder="Enter password">
+                  <button type="button" class="btn-toggle-pwd"><span class="material-symbols-rounded">visibility</span></button>
+                </div>
+              </div>
+              <div class="auth-row-right">
+                <button type="button" id="btn-goto-forgot" class="text-btn primary-text">Forgot password?</button>
+              </div>
+
+              <button type="button" id="btn-submit-login" class="btn btn-primary btn-block mt-3">Log In</button>
+              <button type="button" id="btn-login-guest" class="btn btn-secondary btn-block mt-2">Continue as Guest</button>
+
+              <div class="auth-divider"><span>OR CONTINUE WITH</span></div>
+
+              <div class="social-grid">
+                <button type="button" class="btn btn-outline"><span class="social-icon">G</span> Google</button>
+                <button type="button" class="btn btn-outline"><span class="social-icon material-symbols-rounded">terminal</span> Apple</button>
+              </div>
+
+              <p class="auth-footer">Don't have an account? <a href="#" id="btn-goto-signup">Sign Up</a></p>
+            </form>
+          </div>
+        </section>
+
+        <!-- 4. AUTH: SIGN UP SCREEN -->
+        <section id="screen-signup" class="app-screen">
+          <div class="app-top-bar">
+            <button class="icon-btn btn-back"><span class="material-symbols-rounded">arrow_back</span></button>
+            <h3>Create Account</h3>
+          </div>
+          <div class="auth-container">
+            <h2 class="auth-title">Join ResumeCraft</h2>
+            <p class="auth-subtitle">Land your dream job with AI-crafted, recruiter-tested resumes.</p>
+
+            <form id="form-signup" class="auth-form" onsubmit="event.preventDefault();">
+              <div class="input-group">
+                <label>Full Name *</label>
+                <div class="input-field">
+                  <span class="material-symbols-rounded prefix">person</span>
+                  <input type="text" id="signup-name" placeholder="e.g. Alex Morgan" value="Alex Morgan" required>
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Email Address *</label>
+                <div class="input-field">
+                  <span class="material-symbols-rounded prefix">mail</span>
+                  <input type="email" id="signup-email" placeholder="alex.morgan@example.com" value="alex.morgan@example.com" required>
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Password *</label>
+                <div class="input-field">
+                  <span class="material-symbols-rounded prefix">lock</span>
+                  <input type="password" id="signup-password" placeholder="Create strong password (min 6 chars)" value="Password123!" required>
+                </div>
+              </div>
+              <div class="checkbox-row">
+                <input type="checkbox" id="agree-terms" checked>
+                <label for="agree-terms">I agree to the <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a>.</label>
+              </div>
+
+              <button type="button" id="btn-submit-signup" class="btn btn-primary btn-block mt-3">Create Account</button>
+              <p class="auth-footer">Already have an account? <a href="#" id="btn-signup-goto-login">Log In</a></p>
+            </form>
+          </div>
+        </section>
+
+        <!-- 5. AUTH: FORGOT PASSWORD -->
+        <section id="screen-forgot-password" class="app-screen">
+          <div class="app-top-bar">
+            <button class="icon-btn btn-back"><span class="material-symbols-rounded">arrow_back</span></button>
+            <h3>Reset Password</h3>
+          </div>
+          <div class="auth-container">
+            <div id="forgot-step-0">
+              <h2 class="auth-title">Forgot Password?</h2>
+              <p class="auth-subtitle">Enter your account email to receive a 6-digit verification code.</p>
+              <div class="input-group mt-3">
+                <label>Email Address *</label>
+                <div class="input-field">
+                  <span class="material-symbols-rounded prefix">mail</span>
+                  <input type="email" id="forgot-email" value="alex.morgan@example.com">
+                </div>
+              </div>
+              <button type="button" id="btn-send-otp" class="btn btn-primary btn-block mt-3">Send Verification Code</button>
+            </div>
+            <div id="forgot-step-1" class="hidden">
+              <h2 class="auth-title">Enter Verification Code</h2>
+              <p class="auth-subtitle">Enter the 6-digit verification code sent to your email.</p>
+              <div class="input-group mt-3">
+                <label>Verification Code *</label>
+                <div class="input-field">
+                  <span class="material-symbols-rounded prefix">pin</span>
+                  <input type="text" id="forgot-otp" value="583921" maxlength="6">
+                </div>
+              </div>
+              <button type="button" id="btn-verify-otp" class="btn btn-primary btn-block mt-3">Verify Code</button>
+            </div>
+            <div id="forgot-step-2" class="hidden">
+              <h2 class="auth-title">Create New Password</h2>
+              <p class="auth-subtitle">Your new password must be at least 6 characters long.</p>
+              <div class="input-group mt-3">
+                <label>New Password *</label>
+                <div class="input-field">
+                  <span class="material-symbols-rounded prefix">lock</span>
+                  <input type="password" id="forgot-new-pwd" value="NewPassword123!">
+                </div>
+              </div>
+              <button type="button" id="btn-update-pwd" class="btn btn-primary btn-block mt-3">Update Password</button>
+            </div>
+            <div id="forgot-step-3" class="hidden text-center">
+              <div class="success-icon-circle"><span class="material-symbols-rounded">check_circle</span></div>
+              <h2 class="auth-title mt-2">Password Changed!</h2>
+              <p class="auth-subtitle">Your password has been successfully updated. You can now log in.</p>
+              <button type="button" id="btn-finish-forgot" class="btn btn-primary btn-block mt-3">Return to Login</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. MAIN APP SHELL WITH 5 TABS -->
+        <section id="screen-main-shell" class="app-screen">
+          <div class="shell-tab-content">
+
+            <!-- TAB 0: HOME DASHBOARD -->
+            <div id="tab-home" class="tab-pane active">
+              <header class="home-header">
+                <div>
+                  <h2 class="greeting-text">Good morning, <span class="user-display-name">Alex</span>!</h2>
+                  <p class="greeting-sub">Build, tailor and track your job applications.</p>
+                </div>
+                <button class="icon-circle-btn" id="btn-notif"><span class="material-symbols-rounded">notifications</span><span class="notif-dot"></span></button>
+              </header>
+
+              <!-- CTA Card -->
+              <div class="hero-cta-card">
+                <div class="hero-badge">
+                  <span class="material-symbols-rounded">auto_awesome</span>
+                  <span>AI-Powered Resume Builder</span>
+                </div>
+                <h3>Create a Winning Resume</h3>
+                <p>Choose an ATS-friendly layout and craft an interview-ready CV in minutes with smart suggestions.</p>
+                <button class="btn btn-hero" id="btn-create-resume">+ Create New Resume</button>
+              </div>
+
+              <!-- Continue Editing -->
+              <div class="section-row">
+                <h3>Continue Editing</h3>
+                <span class="sub-link">Recent Draft</span>
+              </div>
+              <div class="card continue-card" id="card-continue-editing">
+                <div class="continue-header">
+                  <div class="doc-icon-box"><span class="material-symbols-rounded">description</span></div>
+                  <div class="continue-info">
+                    <h4 class="active-resume-title">Alex Morgan - Software Engineer</h4>
+                    <span class="meta-date">Edited Just Now</span>
+                  </div>
+                  <span class="badge-pill bg-green-tint active-resume-pct">85%</span>
+                </div>
+                <div class="progress-track mt-2">
+                  <div class="progress-fill active-resume-bar" style="width: 85%;"></div>
+                </div>
+                <div class="card-actions-row mt-2">
+                  <button class="btn btn-outline btn-sm" id="btn-home-edit-resume"><span class="material-symbols-rounded">edit</span> Edit</button>
+                  <button class="btn btn-secondary btn-sm" id="btn-home-preview-resume"><span class="material-symbols-rounded">visibility</span> Preview</button>
+                </div>
+              </div>
+
+              <!-- ATS Banner -->
+              <div class="card ats-banner-card mt-2" id="card-ats-banner">
+                <div class="ats-icon-box"><span class="material-symbols-rounded">fact_check</span></div>
+                <div class="ats-banner-info">
+                  <h4>ATS Resume Scanner</h4>
+                  <p>Check keyword density & score against job systems.</p>
+                </div>
+                <span class="material-symbols-rounded chevron">chevron_right</span>
+              </div>
+
+              <!-- Quick Recent Resumes -->
+              <div class="section-row mt-3">
+                <h3>My Resumes</h3>
+                <span class="sub-link" id="link-view-all-resumes">View All</span>
+              </div>
+              <div class="resumes-mini-list" id="home-resumes-list">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+
+            <!-- TAB 1: MY RESUMES -->
+            <div id="tab-resumes" class="tab-pane">
+              <header class="app-top-bar">
+                <h3>My Resumes</h3>
+                <button class="icon-btn" id="btn-create-from-resumes"><span class="material-symbols-rounded">add</span></button>
+              </header>
+              <div class="tab-scroll-body">
+                <div class="search-bar-wrap">
+                  <span class="material-symbols-rounded search-icon">search</span>
+                  <input type="text" id="input-search-resumes" placeholder="Search resumes by title or role...">
+                </div>
+                <div id="resumes-container" class="resumes-card-container">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 2: TEMPLATES -->
+            <div id="tab-templates" class="tab-pane">
+              <header class="app-top-bar">
+                <h3>Resume Templates</h3>
+              </header>
+              <div class="chips-scroll-container" id="template-filter-chips">
+                <button class="chip active" data-cat="all">All</button>
+                <button class="chip" data-cat="ATS Friendly">ATS Friendly</button>
+                <button class="chip" data-cat="Professional">Professional</button>
+                <button class="chip" data-cat="Modern">Modern</button>
+                <button class="chip" data-cat="Minimal">Minimal</button>
+                <button class="chip" data-cat="Creative">Creative</button>
+                <button class="chip" data-cat="Executive">Executive</button>
+                <button class="chip" data-cat="Student">Student</button>
+              </div>
+              <div class="tab-scroll-body">
+                <div class="templates-grid" id="templates-grid-container">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 3: TIPS -->
+            <div id="tab-tips" class="tab-pane">
+              <header class="app-top-bar">
+                <h3>Career & Resume Tips</h3>
+              </header>
+              <div class="tab-scroll-body">
+                <div class="card banner-blue mb-2">
+                  <div class="d-flex align-center">
+                    <span class="material-symbols-rounded banner-icon">lightbulb</span>
+                    <div class="ml-2">
+                      <h4>Expert Hiring Advice</h4>
+                      <p>Strategies tested with Fortune 500 recruiters and managers.</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="tips-list-container">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 4: PROFILE -->
+            <div id="tab-profile" class="tab-pane">
+              <header class="app-top-bar">
+                <h3>Profile</h3>
+                <button class="icon-btn" id="btn-open-settings"><span class="material-symbols-rounded">settings</span></button>
+              </header>
+              <div class="tab-scroll-body">
+                <div class="card profile-card">
+                  <div class="avatar-circle" id="profile-avatar">
+                    <span class="material-symbols-rounded">person</span>
+                  </div>
+                  <div class="profile-info">
+                    <div class="d-flex align-center">
+                      <h3 class="user-display-name">Alex Morgan</h3>
+                      <span class="badge-pro ml-1 hidden" id="badge-pro-user">PRO</span>
+                    </div>
+                    <p class="text-muted" id="user-display-email">alex.morgan@example.com</p>
+                  </div>
+                  <button class="icon-btn" id="btn-edit-profile-name"><span class="material-symbols-rounded">edit</span></button>
+                </div>
+
+                <!-- Upgrade Banner -->
+                <div class="card upgrade-card mt-2" id="profile-upgrade-banner">
+                  <div class="star-box"><span class="material-symbols-rounded">star</span></div>
+                  <div class="upgrade-text">
+                    <h4>Upgrade to Pro</h4>
+                    <p>Unlock all templates, AI Assistant & ATS scanner</p>
+                  </div>
+                  <span class="material-symbols-rounded chevron">chevron_right</span>
+                </div>
+
+                <!-- Menu Items -->
+                <div class="card menu-card mt-2">
+                  <div class="menu-item" id="menu-sub"><span class="material-symbols-rounded text-amber">star</span><span>Subscription</span><span class="material-symbols-rounded chevron">chevron_right</span></div>
+                  <div class="menu-item" id="menu-settings"><span class="material-symbols-rounded text-primary">tune</span><span>Settings & Appearance</span><span class="material-symbols-rounded chevron">chevron_right</span></div>
+                  <div class="menu-item" id="menu-help"><span class="material-symbols-rounded text-primary">help</span><span>Help & Support</span><span class="material-symbols-rounded chevron">chevron_right</span></div>
+                  <div class="menu-item" id="menu-privacy"><span class="material-symbols-rounded text-primary">security</span><span>Privacy & Local Storage</span><span class="material-symbols-rounded chevron">chevron_right</span></div>
+                  <div class="menu-item" id="menu-about"><span class="material-symbols-rounded text-primary">info</span><span>About ResumeCraft</span><span class="material-symbols-rounded chevron">chevron_right</span></div>
+                  <div class="menu-item text-danger" id="menu-logout"><span class="material-symbols-rounded">logout</span><span>Log Out</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Material 3 Bottom Navigation Bar -->
+          <nav class="m3-navigation-bar">
+            <button class="nav-dest active" data-tab="0">
+              <span class="nav-icon-pill"><span class="material-symbols-rounded">home</span></span>
+              <span class="nav-label">Home</span>
+            </button>
+            <button class="nav-dest" data-tab="1">
+              <span class="nav-icon-pill"><span class="material-symbols-rounded">folder</span></span>
+              <span class="nav-label">Resumes</span>
+            </button>
+            <button class="nav-dest" data-tab="2">
+              <span class="nav-icon-pill"><span class="material-symbols-rounded">grid_view</span></span>
+              <span class="nav-label">Templates</span>
+            </button>
+            <button class="nav-dest" data-tab="3">
+              <span class="nav-icon-pill"><span class="material-symbols-rounded">lightbulb</span></span>
+              <span class="nav-label">Tips</span>
+            </button>
+            <button class="nav-dest" data-tab="4">
+              <span class="nav-icon-pill"><span class="material-symbols-rounded">person</span></span>
+              <span class="nav-label">Profile</span>
+            </button>
+          </nav>
+        </section>
+
+        <!-- 7. CHOOSE RESUME TYPE (STEP 1) -->
+        <!-- 7. CHOOSE RESUME STARTER MODE -->
+        <section id="screen-resume-type" class="app-screen">
+          <div class="app-top-bar">
+            <button class="icon-btn btn-back"><span class="material-symbols-rounded">arrow_back</span></button>
+            <h3>Create New Resume</h3>
+          </div>
+          <div class="screen-body">
+            <h2>How would you like to start?</h2>
+            <div class="type-options-list mt-2" id="resume-types-container">
+              <!-- Injected via JS -->
+            </div>
+
+            <h4 class="mt-3">Target Roles</h4>
+            <div class="chips-wrap mt-1" id="role-quick-starters">
+              <button class="chip" data-role="Software Engineer">💻 Software Engineer</button>
+              <button class="chip" data-role="Product Manager">📊 Product Manager</button>
+              <button class="chip" data-role="Data Analyst">📈 Data Analyst</button>
+              <button class="chip" data-role="Marketing Specialist">📣 Marketing Specialist</button>
+              <button class="chip" data-role="Student / Graduate">🎓 Fresh Graduate</button>
+            </div>
+
+            <button class="btn btn-primary btn-block mt-3" id="btn-continue-to-templates">Continue</button>
+          </div>
+        </section>
+
+        <!-- 8. TEMPLATE PICKER (STEP 2) -->
+        <section id="screen-template-picker" class="app-screen">
+          <div class="app-top-bar">
+            <button class="icon-btn btn-back"><span class="material-symbols-rounded">arrow_back</span></button>
+            <h3>Choose Template</h3>
+          </div>
+          <div class="screen-body">
+            <h2>Select Template</h2>
+            <div class="templates-grid mt-2" id="picker-templates-container">
+              <!-- Injected via JS -->
+            </div>
+            <button class="btn btn-primary btn-block mt-3" id="btn-start-building">Start Building</button>
+          </div>
+        </section>
+
+        <!-- 9. MULTI-STEP RESUME BUILDER -->
+        <section id="screen-builder" class="app-screen">
+          <!-- Top Bar -->
+          <div class="app-top-bar">
+            <button class="icon-btn" id="btn-builder-back"><span class="material-symbols-rounded">arrow_back</span></button>
+            <h3 id="builder-resume-title">Alex Morgan - Resume</h3>
+            <div class="app-top-actions">
+              <button class="icon-btn text-primary" id="btn-open-ai-sparkle" title="AI Assistant"><span class="material-symbols-rounded">auto_awesome</span></button>
+              <button class="text-btn primary-text" id="btn-builder-preview"><span class="material-symbols-rounded">visibility</span> Preview</button>
+            </div>
+          </div>
+
+          <!-- Step Progress Indicator -->
+          <div class="builder-progress-header">
+            <div class="d-flex justify-between align-center">
+              <div>
+                <span class="step-tag" id="builder-step-num">Step 1 of 10</span>
+                <h4 id="builder-step-name">Personal Information</h4>
+              </div>
+              <div class="text-right">
+                <span class="pct-text" id="builder-pct-text">85%</span>
+                <span class="autosave-status" id="builder-save-status"><span class="material-symbols-rounded check-mini">check_circle</span> Saved just now</span>
+              </div>
+            </div>
+            <div class="progress-track mt-1">
+              <div class="progress-fill" id="builder-progress-bar" style="width: 85%;"></div>
+            </div>
+          </div>
+
+          <!-- Step Tabs Row -->
+          <div class="step-tabs-row" id="builder-step-pills">
+            <!-- Pills 1-10 injected via JS -->
+          </div>
+
+          <!-- Builder Step Content Container -->
+          <div class="builder-step-viewport" id="builder-step-viewport">
+            <!-- Injected dynamically per step -->
+          </div>
+
+          <!-- Builder Bottom Navigation -->
+          <footer class="builder-bottom-bar">
+            <button class="btn btn-outline" id="btn-builder-prev"><span class="material-symbols-rounded">arrow_back</span> Previous</button>
+            <button class="btn btn-primary" id="btn-builder-next">Save & Continue <span class="material-symbols-rounded">arrow_forward</span></button>
+          </footer>
+        </section>
+
+        <!-- 10. LIVE RESUME PREVIEW SCREEN -->
+        <section id="screen-preview" class="app-screen">
+          <div class="app-top-bar">
+            <button class="icon-btn btn-back"><span class="material-symbols-rounded">arrow_back</span></button>
+            <h3 id="preview-screen-title">Alex Morgan - Resume</h3>
+            <div class="app-top-actions">
+              <button class="icon-btn" id="btn-preview-ats" title="ATS Scan"><span class="material-symbols-rounded">fact_check</span></button>
+              <button class="icon-btn" id="btn-preview-share" title="Share Resume"><span class="material-symbols-rounded">share</span></button>
+              <button class="icon-btn" id="btn-preview-export" title="Export PDF"><span class="material-symbols-rounded">download</span></button>
+            </div>
+          </div>
+
+          <!-- Canvas Zoom & Quick ATS Health Controls -->
+          <div class="preview-controls-bar">
+            <div class="d-flex align-center" style="gap: 8px">
+              <span class="badge-page">1 Page</span>
+              <div class="preview-ats-pill" id="preview-floating-ats" title="Click to view ATS breakdown">
+                <span class="material-symbols-rounded text-green" style="font-size:15px">verified</span>
+                <span>ATS: <strong id="preview-ats-score-badge">84%</strong></span>
+              </div>
+            </div>
+            <div class="zoom-actions">
+              <button class="icon-btn-sm" id="btn-zoom-out"><span class="material-symbols-rounded">zoom_out</span></button>
+              <span id="zoom-level-text">100%</span>
+              <button class="icon-btn-sm" id="btn-zoom-in"><span class="material-symbols-rounded">zoom_in</span></button>
+              <button class="icon-btn-sm" id="btn-zoom-reset"><span class="material-symbols-rounded">restart_alt</span></button>
+            </div>
+          </div>
+
+          <!-- Live Fast-Action Bar: Instant Layout Switch & Color Dot Swatches -->
+          <div class="preview-fast-bar">
+            <div class="seg-btn-group" id="preview-layout-seg">
+              <button class="seg-btn" id="btn-fast-1col">1-Col Classic</button>
+              <button class="seg-btn active" id="btn-fast-2col">2-Col Modern</button>
+            </div>
+            <div class="fast-palette-dots" id="fast-palette-dots">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Rendered Resume Canvas -->
+          <div class="canvas-scroll-container">
+            <div class="resume-paper" id="rendered-resume-paper">
+              <!-- Live resume HTML rendered here -->
+            </div>
+          </div>
+
+          <!-- Bottom Toolbar -->
+          <footer class="preview-bottom-toolbar">
+            <button class="toolbar-btn" id="btn-toolbar-edit"><span class="material-symbols-rounded">edit</span><span>Edit</span></button>
+            <button class="toolbar-btn" id="btn-toolbar-template"><span class="material-symbols-rounded">grid_view</span><span>Template</span></button>
+            <button class="toolbar-btn" id="btn-toolbar-style"><span class="material-symbols-rounded">palette</span><span>Style</span></button>
+            <button class="toolbar-btn" id="btn-toolbar-ats"><span class="material-symbols-rounded">fact_check</span><span>ATS Check</span></button>
+            <button class="toolbar-btn primary-tool" id="btn-toolbar-export"><span class="material-symbols-rounded">download</span><span>Export</span></button>
+          </footer>
+        </section>
+
+        <!-- 11. ATS CHECKER SCREEN -->
+        <section id="screen-ats" class="app-screen">
+          <div class="app-top-bar">
+            <button class="icon-btn btn-back"><span class="material-symbols-rounded">arrow_back</span></button>
+            <h3>ATS Compatibility Checker</h3>
+          </div>
+          <div class="screen-body">
+            <!-- Score Gauge Card -->
+            <div class="card ats-score-hero">
+              <div class="ats-circle-gauge">
+                <span class="gauge-num" id="ats-hero-score">84%</span>
+                <span class="gauge-lbl">ATS SCORE</span>
+              </div>
+              <div class="gauge-info">
+                <h3 id="ats-hero-title">Recruiter-Ready</h3>
+              </div>
+            </div>
+
+            <!-- 1-Click Auto-Optimize CTA -->
+            <button class="btn btn-hero mt-2" id="btn-ats-auto-optimize" style="background: linear-gradient(135deg, #059669 0%, #10B981 100%); color: white; border: none; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);">
+              <span class="material-symbols-rounded">auto_fix_high</span>
+              <span>1-Click Auto-Optimize (Boost to 98%)</span>
+            </button>
+
+            <!-- Categories -->
+            <h4 class="mt-3">Evaluation Categories</h4>
+            <div class="ats-categories-list" id="ats-categories-container">
+              <!-- Injected via JS -->
+            </div>
+
+            <!-- Actionable Recommendations -->
+            <h4 class="mt-3">Actionable Improvements</h4>
+            <div class="ats-recommendations-list" id="ats-recommendations-container">
+              <!-- Injected via JS -->
+            </div>
+
+            <button class="btn btn-primary btn-block mt-3" id="btn-ats-improve-resume">Edit in Builder</button>
+            <button class="btn btn-outline btn-block mt-2" id="btn-ats-goto-job-match">Match Against Job Posting</button>
+          </div>
+        </section>
+
+        <!-- 12. JOB DESCRIPTION MATCHING SCREEN -->
+        <section id="screen-job-match" class="app-screen">
+          <div class="app-top-bar">
+            <button class="icon-btn btn-back"><span class="material-symbols-rounded">arrow_back</span></button>
+            <h3>Match Resume to Job</h3>
+          </div>
+          <div class="screen-body">
+            <h2>Job Description Matcher</h2>
+
+            <div class="card mt-2">
+              <div class="d-flex justify-between align-center mb-1">
+                <label><strong>Job Description</strong></label>
+                <button class="text-btn" id="btn-paste-sample-jd">Paste Sample</button>
+              </div>
+              <textarea id="input-job-description" rows="5" placeholder="Paste requirements and responsibilities..."></textarea>
+              <button class="btn btn-primary btn-block mt-2" id="btn-analyze-jd">Analyze Match</button>
+            </div>
+
+            <div id="job-match-results" class="hidden mt-3">
+              <div class="card hero-match-card">
+                <div class="match-circle"><span id="job-match-pct">82%</span></div>
+                <div>
+                  <h4>Strong Match</h4>
+                  <p id="job-match-summary-text">82% of required qualifications satisfied.</p>
+                </div>
+              </div>
+
+              <!-- 1-Click Tailor CTA -->
+              <button class="btn btn-hero mt-2" id="btn-auto-tailor-job" style="background: linear-gradient(135deg, #1E40AF 0%, #2563EB 100%); color: white; border: none; box-shadow: 0 4px 14px var(--primary-glow);">
+                <span class="material-symbols-rounded">auto_awesome</span>
+                <span>Auto-Tailor Resume with Missing Keywords</span>
+              </button>
+
+              <h4 class="mt-3">Matching Keywords</h4>
+              <div class="chips-wrap mt-1" id="matched-keywords-chips"></div>
+
+              <h4 class="mt-3">Missing Keywords</h4>
+              <div class="chips-wrap mt-1" id="missing-keywords-chips"></div>
+
+              <h4 class="mt-3">Alignment Recommendations</h4>
+              <div class="tips-bullets mt-1" id="match-alignment-tips"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 13. EXPORT SCREEN -->
+        <section id="screen-export" class="app-screen">
+          <div class="app-top-bar">
+            <button class="icon-btn btn-back"><span class="material-symbols-rounded">arrow_back</span></button>
+            <h3>Export Your Resume</h3>
+          </div>
+          <div class="screen-body">
+            <div class="card meta-export-card">
+              <div class="doc-icon-box"><span class="material-symbols-rounded">picture_as_pdf</span></div>
+              <div class="ml-2">
+                <h4 id="export-resume-title">Alex Morgan - Resume</h4>
+              </div>
+            </div>
+
+            <h4 class="mt-3">Format</h4>
+            <div class="format-cards-grid mt-1">
+              <div class="card format-card active" data-format="pdf">
+                <span class="material-symbols-rounded text-primary">picture_as_pdf</span>
+                <strong>PDF Document</strong>
+              </div>
+              <div class="card format-card" data-format="text">
+                <span class="material-symbols-rounded text-primary">text_snippet</span>
+                <strong>Plain Text</strong>
+              </div>
+            </div>
+
+            <h4 class="mt-3">Page Settings</h4>
+            <div class="card mt-1">
+              <div class="setting-row">
+                <span>Page Size</span>
+                <div class="seg-btn-group">
+                  <button class="seg-btn active" data-pagesize="a4">A4</button>
+                  <button class="seg-btn" data-pagesize="letter">US Letter</button>
+                </div>
+              </div>
+              <div class="setting-row">
+                <span>Include Profile Photo</span>
+                <input type="checkbox" id="setting-include-photo" checked>
+              </div>
+              <div class="setting-row">
+                <span>Include Clickable Links</span>
+                <input type="checkbox" id="setting-include-links" checked>
+              </div>
+              <div class="setting-row">
+                <span>Compress PDF File Size</span>
+                <input type="checkbox" id="setting-compress-pdf">
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-block mt-3" id="btn-download-pdf"><span class="material-symbols-rounded">download</span> Download PDF</button>
+            <button class="btn btn-outline btn-block mt-2" id="btn-share-resume-sheet"><span class="material-symbols-rounded">share</span> Share Resume</button>
+          </div>
+        </section>
+
+        <!-- 14. PRO MEMBERSHIP SCREEN -->
+        <section id="screen-pro" class="app-screen">
+          <div class="app-top-bar">
+            <button class="icon-btn btn-back"><span class="material-symbols-rounded">arrow_back</span></button>
+            <h3>ResumeCraft Pro</h3>
+          </div>
+          <div class="screen-body text-center">
+            <div class="pill-tag bg-amber-tint">PREMIUM MEMBERSHIP</div>
+            <h2 class="mt-2">Supercharge Your Job Hunt</h2>
+            <p class="text-muted">Unlock unlimited AI prompts, all 7+ executive templates & ATS scanner.</p>
+
+            <div class="billing-toggle mt-2">
+              <button class="bill-btn active" id="btn-bill-annual">Annual (Save 35%)</button>
+              <button class="bill-btn" id="btn-bill-monthly">Monthly</button>
+            </div>
+
+            <div class="card price-card mt-2">
+              <div class="price-val" id="price-display">$3.33 <span>/ month</span></div>
+              <p class="text-muted" id="price-sub-display">Billed annually at $39.99/yr. Cancel anytime.</p>
+            </div>
+
+            <div class="features-list text-left mt-3">
+              <div class="feat-item"><span class="material-symbols-rounded text-green">check_circle</span> All 7+ Premium & Executive Templates</div>
+              <div class="feat-item"><span class="material-symbols-rounded text-green">check_circle</span> Unlimited AI Assistant Prompts</div>
+              <div class="feat-item"><span class="material-symbols-rounded text-green">check_circle</span> Deep ATS Parser & Keyword Scanner</div>
+              <div class="feat-item"><span class="material-symbols-rounded text-green">check_circle</span> Job Description Matching & Gap Analysis</div>
+              <div class="feat-item"><span class="material-symbols-rounded text-green">check_circle</span> High-Res Vectorized PDF Export</div>
+              <div class="feat-item"><span class="material-symbols-rounded text-green">check_circle</span> Unlimited Saved Resumes</div>
+            </div>
+
+            <button class="btn btn-primary btn-block mt-3" id="btn-upgrade-pro-confirm">Upgrade to Pro</button>
+          </div>
+        </section>
+
+        <!-- 15. SETTINGS SCREEN -->
+        <section id="screen-settings" class="app-screen">
+          <div class="app-top-bar">
+            <button class="icon-btn btn-back"><span class="material-symbols-rounded">arrow_back</span></button>
+            <h3>App Settings</h3>
+          </div>
+          <div class="screen-body">
+            <h4>Appearance</h4>
+            <div class="card mt-1">
+              <label class="radio-row"><input type="radio" name="app-theme-choice" value="system"> System Default</label>
+              <label class="radio-row"><input type="radio" name="app-theme-choice" value="light" checked> Light Mode</label>
+              <label class="radio-row"><input type="radio" name="app-theme-choice" value="dark"> Dark Mode</label>
+            </div>
+
+            <h4 class="mt-3">Notifications</h4>
+            <div class="card mt-1">
+              <div class="setting-row">
+                <span>Resume Reminders</span>
+                <input type="checkbox" checked>
+              </div>
+              <div class="setting-row">
+                <span>Weekly ATS & Career Tips</span>
+                <input type="checkbox" checked>
+              </div>
+            </div>
+
+            <h4 class="mt-3">Data & Storage</h4>
+            <div class="card mt-1">
+              <div class="menu-item" id="btn-backup-data"><span class="material-symbols-rounded text-primary">backup</span><span>Backup Resumes (JSON)</span></div>
+              <div class="menu-item text-danger" id="btn-delete-all-resumes"><span class="material-symbols-rounded">delete_forever</span><span>Delete All Resumes</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- OVERLAY BOTTOM SHEETS -->
+        <!-- AI Assistant Bottom Sheet -->
+        <div class="bottom-sheet" id="sheet-ai">
+          <div class="sheet-backdrop"></div>
+          <div class="sheet-surface">
+            <div class="sheet-drag-handle"></div>
+            <div class="sheet-header">
+              <div class="d-flex align-center">
+                <span class="material-symbols-rounded text-primary">auto_awesome</span>
+                <strong class="ml-1">AI Resume Assistant</strong>
+              </div>
+              <button class="icon-btn btn-close-sheet"><span class="material-symbols-rounded">close</span></button>
+            </div>
+            <div class="sheet-body">
+              <span class="text-muted d-block mb-1">Quick Prompts</span>
+              <div class="chips-wrap" id="ai-quick-pills">
+                <button class="chip" data-ai="Write Summary">Write Summary</button>
+                <button class="chip" data-ai="Improve Experience">Improve Experience</button>
+                <button class="chip" data-ai="Make ATS Friendly">Make ATS Friendly</button>
+                <button class="chip" data-ai="Add Achievements">Add Achievements</button>
+                <button class="chip" data-ai="Suggest Skills">Suggest Skills</button>
+                <button class="chip" data-ai="Shorten Text">Shorten Text</button>
+              </div>
+              <div class="mt-2">
+                <label>Input Text or Prompt</label>
+                <textarea id="ai-input-text" rows="3" placeholder="Draft summary or prompt..."></textarea>
+                <button class="btn btn-primary btn-block mt-1" id="btn-ai-generate">Enhance with AI</button>
+              </div>
+              <div id="ai-result-box" class="hidden mt-2">
+                <div class="d-flex justify-between align-center">
+                  <label><strong>AI Generated Result (Editable)</strong></label>
+                  <button class="text-btn" id="btn-copy-ai">Copy</button>
+                </div>
+                <textarea id="ai-output-text" rows="4"></textarea>
+                <div class="d-flex mt-1">
+                  <button class="btn btn-primary flex-1" id="btn-ai-insert">Insert into Resume</button>
+                  <button class="btn btn-outline ml-1" id="btn-ai-regenerate">Regenerate</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customization Sheet -->
+        <div class="bottom-sheet" id="sheet-customization">
+          <div class="sheet-backdrop"></div>
+          <div class="sheet-surface">
+            <div class="sheet-drag-handle"></div>
+            <div class="sheet-header">
+              <strong>Customize Resume Style</strong>
+              <button class="icon-btn btn-close-sheet"><span class="material-symbols-rounded">close</span></button>
+            </div>
+            <div class="sheet-tabs">
+              <button class="sheet-tab active" data-tab="colors">Colors</button>
+              <button class="sheet-tab" data-tab="layout">Layout</button>
+              <button class="sheet-tab" data-tab="fonts">Fonts</button>
+              <button class="sheet-tab" data-tab="sections">Sections</button>
+            </div>
+            <div class="sheet-body" id="customization-tab-content">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Share Success Bottom Sheet -->
+        <div class="bottom-sheet" id="sheet-share-success">
+          <div class="sheet-backdrop"></div>
+          <div class="sheet-surface text-center p-3">
+            <div class="sheet-drag-handle"></div>
+            <div class="success-icon-circle mt-1"><span class="material-symbols-rounded">check_circle</span></div>
+            <h3 class="mt-2">Your Resume is Ready!</h3>
+            <p class="text-muted">PDF successfully generated. Share it directly with hiring managers.</p>
+            <button class="btn btn-primary btn-block mt-2" id="btn-sheet-share-native"><span class="material-symbols-rounded">share</span> Share via Android Share Sheet</button>
+            <button class="btn btn-outline btn-block mt-1" id="btn-sheet-share-text">Share as Plain Text</button>
+            <button class="btn btn-text btn-block mt-1 btn-close-sheet">Close</button>
+          </div>
+        </div>
+
+        <!-- Tip Detail Modal -->
+        <div class="bottom-sheet" id="sheet-tip-detail">
+          <div class="sheet-backdrop"></div>
+          <div class="sheet-surface">
+            <div class="sheet-drag-handle"></div>
+            <div class="sheet-header">
+              <h3 id="tip-modal-title">Tip Title</h3>
+              <button class="icon-btn btn-close-sheet"><span class="material-symbols-rounded">close</span></button>
+            </div>
+            <div class="sheet-body">
+              <span class="step-badge" id="tip-modal-cat">Category</span>
+              <div class="mt-2" id="tip-modal-content" style="white-space: pre-wrap; line-height: 1.6;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Global Toast Container -->
+        <div id="toast" class="toast-popup">Notification message</div>
+
+      </div><!-- End app-viewport -->
+
+      <!-- Android Navigation Bar (Back, Home, Recent) -->
+      <footer class="android-nav-bar">
+        <button class="nav-key" id="key-android-back" title="Android Back Button"><span class="material-symbols-rounded">arrow_back_ios_new</span></button>
+        <button class="nav-key" id="key-android-home" title="Android Home Button"><span class="material-symbols-rounded">radio_button_unchecked</span></button>
+        <button class="nav-key" id="key-android-recents" title="Android Recent Apps"><span class="material-symbols-rounded">crop_square</span></button>
+      </footer>
+    </div><!-- End phone-frame -->
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
