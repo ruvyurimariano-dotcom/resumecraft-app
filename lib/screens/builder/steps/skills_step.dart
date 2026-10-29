@@ -166,7 +166,7 @@ class _SkillsStepState extends State<SkillsStep> {
                 fontWeight: isAlreadyAdded ? FontWeight.bold : FontWeight.w500,
               ),
               backgroundColor: isAlreadyAdded
-                  ? AppColors.successContainer.withValues(alpha: 0.4)
+                  ? AppColors.successContainer.withOpacity( 0.4)
                   : null,
               onPressed: isAlreadyAdded
                   ? null

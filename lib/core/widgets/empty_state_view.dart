@@ -39,7 +39,7 @@ class EmptyStateView extends StatelessWidget {
                 shape: BoxShape.circle,
                 color: isDark
                     ? const Color(0xFF1E293B)
-                    : AppColors.primaryContainer.withValues(alpha: 0.6),
+                    : AppColors.primaryContainer.withOpacity( 0.6),
               ),
               child: Icon(
                 icon,

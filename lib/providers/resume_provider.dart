@@ -216,6 +216,15 @@ class ResumeProvider extends ChangeNotifier {
     _triggerAutosave();
   }
 
+  void updateCertification(int index, Certification cert) {
+    if (index >= 0 && index < _activeResume.certifications.length) {
+      final list = List<Certification>.from(_activeResume.certifications);
+      list[index] = cert;
+      _activeResume = _activeResume.copyWith(certifications: list);
+      _triggerAutosave();
+    }
+  }
+
   void removeCertification(int index) {
     if (index >= 0 && index < _activeResume.certifications.length) {
       final list = List<Certification>.from(_activeResume.certifications)..removeAt(index);
@@ -231,6 +240,15 @@ class ResumeProvider extends ChangeNotifier {
     _triggerAutosave();
   }
 
+  void updateLanguage(int index, Language lang) {
+    if (index >= 0 && index < _activeResume.languages.length) {
+      final list = List<Language>.from(_activeResume.languages);
+      list[index] = lang;
+      _activeResume = _activeResume.copyWith(languages: list);
+      _triggerAutosave();
+    }
+  }
+
   void removeLanguage(int index) {
     if (index >= 0 && index < _activeResume.languages.length) {
       final list = List<Language>.from(_activeResume.languages)..removeAt(index);
@@ -244,6 +262,15 @@ class ResumeProvider extends ChangeNotifier {
     final list = List<Reference>.from(_activeResume.references)..add(ref);
     _activeResume = _activeResume.copyWith(references: list);
     _triggerAutosave();
+  }
+
+  void updateReference(int index, Reference ref) {
+    if (index >= 0 && index < _activeResume.references.length) {
+      final list = List<Reference>.from(_activeResume.references);
+      list[index] = ref;
+      _activeResume = _activeResume.copyWith(references: list);
+      _triggerAutosave();
+    }
   }
 
   void removeReference(int index) {

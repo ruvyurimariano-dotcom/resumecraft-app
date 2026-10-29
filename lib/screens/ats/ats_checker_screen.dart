@@ -32,7 +32,7 @@ class AtsCheckerScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(24),
                 color: isDark
                     ? const Color(0xFF1E293B)
-                    : AppColors.primaryContainer.withValues(alpha: 0.35),
+                    : AppColors.primaryContainer.withOpacity( 0.35),
                 child: Row(
                   children: [
                     Container(
@@ -43,7 +43,7 @@ class AtsCheckerScreen extends StatelessWidget {
                         color: isDark ? AppColors.surfaceDark : Colors.white,
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withValues(alpha: 0.08),
+                            color: Colors.black.withOpacity( 0.08),
                             blurRadius: 14,
                             offset: const Offset(0, 4),
                           ),

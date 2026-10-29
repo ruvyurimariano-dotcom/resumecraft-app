@@ -123,7 +123,7 @@ class _ResumeTypeSelectorScreenState extends State<ResumeTypeSelectorScreen> {
                         color: isSelected
                             ? (isDark
                                 ? const Color(0xFF1E293B)
-                                : AppColors.primaryContainer.withValues(alpha: 0.35))
+                                : AppColors.primaryContainer.withOpacity( 0.35))
                             : null,
                         onTap: () {
                           setState(() {

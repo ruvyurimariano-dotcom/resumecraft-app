@@ -64,13 +64,13 @@ class TemplatePreviewDialog extends StatelessWidget {
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.12),
+                          color: Colors.black.withOpacity( 0.12),
                           blurRadius: 20,
                           offset: const Offset(0, 8),
                         ),
                       ],
                       border: Border.all(
-                        color: template.defaultPrimaryColor.withValues(alpha: 0.3),
+                        color: template.defaultPrimaryColor.withOpacity( 0.3),
                         width: 1.5,
                       ),
                     ),
@@ -129,7 +129,7 @@ class TemplatePreviewDialog extends StatelessWidget {
                                   width: 70,
                                   height: 8,
                                   decoration: BoxDecoration(
-                                    color: template.defaultPrimaryColor.withValues(alpha: 0.7),
+                                    color: template.defaultPrimaryColor.withOpacity( 0.7),
                                     borderRadius: BorderRadius.circular(3),
                                   ),
                                 ),

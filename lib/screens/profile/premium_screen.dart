@@ -104,7 +104,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                             boxShadow: !_isAnnual
                                 ? [
                                     BoxShadow(
-                                      color: Colors.black.withValues(alpha: 0.05),
+                                      color: Colors.black.withOpacity( 0.05),
                                       blurRadius: 4,
                                     )
                                   ]
@@ -134,7 +134,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                             boxShadow: _isAnnual
                                 ? [
                                     BoxShadow(
-                                      color: Colors.black.withValues(alpha: 0.05),
+                                      color: Colors.black.withOpacity( 0.05),
                                       blurRadius: 4,
                                     )
                                   ]
@@ -174,9 +174,9 @@ class _PremiumScreenState extends State<PremiumScreen> {
                 padding: const EdgeInsets.all(20),
                 color: isDark
                     ? const Color(0xFF1E293B)
-                    : AppColors.primaryContainer.withValues(alpha: 0.35),
+                    : AppColors.primaryContainer.withOpacity( 0.35),
                 border: BorderSide(
-                  color: AppColors.primary.withValues(alpha: 0.4),
+                  color: AppColors.primary.withOpacity( 0.4),
                   width: 1.5,
                 ),
                 child: Column(

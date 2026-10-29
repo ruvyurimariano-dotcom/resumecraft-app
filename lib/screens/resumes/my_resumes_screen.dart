@@ -163,7 +163,7 @@ class MyResumesScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(10),
                                         border: Border.all(
                                           color: AppColors.primary
-                                              .withValues(alpha: 0.25),
+                                              .withOpacity( 0.25),
                                         ),
                                       ),
                                       child: const Icon(

@@ -169,7 +169,7 @@ class _TemplatePickerScreenState extends State<TemplatePickerScreen> {
                     color: isSelected
                         ? (isDark
                             ? const Color(0xFF1E293B)
-                            : AppColors.primaryContainer.withValues(alpha: 0.2))
+                            : AppColors.primaryContainer.withOpacity( 0.2))
                         : null,
                     onTap: () {
                       setState(() {

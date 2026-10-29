@@ -70,9 +70,9 @@ class _SummaryStepState extends State<SummaryStep> {
           padding: const EdgeInsets.all(16),
           color: isDark
               ? const Color(0xFF1E293B)
-              : AppColors.primaryContainer.withValues(alpha: 0.35),
+              : AppColors.primaryContainer.withOpacity( 0.35),
           border: BorderSide(
-            color: AppColors.primary.withValues(alpha: 0.3),
+            color: AppColors.primary.withOpacity( 0.3),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

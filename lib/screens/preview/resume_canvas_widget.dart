@@ -38,7 +38,7 @@ class ResumeCanvasWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(4),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.15),
+            color: Colors.black.withOpacity( 0.15),
             blurRadius: 18,
             offset: const Offset(0, 6),
           ),

@@ -124,7 +124,7 @@ class _JobMatchingScreenState extends State<JobMatchingScreen> {
                   padding: const EdgeInsets.all(20),
                   color: isDark
                       ? const Color(0xFF1E293B)
-                      : AppColors.primaryContainer.withValues(alpha: 0.35),
+                      : AppColors.primaryContainer.withOpacity( 0.35),
                   child: Row(
                     children: [
                       Container(
@@ -193,7 +193,7 @@ class _JobMatchingScreenState extends State<JobMatchingScreen> {
                           fontWeight: FontWeight.bold,
                           color: AppColors.success),
                       backgroundColor:
-                          AppColors.successContainer.withValues(alpha: 0.5),
+                          AppColors.successContainer.withOpacity( 0.5),
                     );
                   }).toList(),
                 ),
@@ -218,7 +218,7 @@ class _JobMatchingScreenState extends State<JobMatchingScreen> {
                           fontWeight: FontWeight.bold,
                           color: AppColors.error),
                       backgroundColor:
-                          AppColors.errorContainer.withValues(alpha: 0.5),
+                          AppColors.errorContainer.withOpacity( 0.5),
                     );
                   }).toList(),
                 ),

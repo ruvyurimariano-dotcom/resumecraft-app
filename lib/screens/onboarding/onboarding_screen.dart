@@ -75,7 +75,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       Container(
                         padding: const EdgeInsets.all(6),
                         decoration: BoxDecoration(
-                          color: AppColors.primary.withValues(alpha: 0.12),
+                          color: AppColors.primary.withOpacity( 0.12),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: const Icon(
@@ -137,9 +137,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           height: 220,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: pageColor.withValues(alpha: 0.1),
+                            color: pageColor.withOpacity( 0.1),
                             border: Border.all(
-                              color: pageColor.withValues(alpha: 0.2),
+                              color: pageColor.withOpacity( 0.2),
                               width: 1.5,
                             ),
                           ),
@@ -152,7 +152,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 borderRadius: BorderRadius.circular(28),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: pageColor.withValues(alpha: 0.2),
+                                    color: pageColor.withOpacity( 0.2),
                                     blurRadius: 24,
                                     offset: const Offset(0, 8),
                                   ),
@@ -173,7 +173,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 14, vertical: 6),
                           decoration: BoxDecoration(
-                            color: pageColor.withValues(alpha: 0.12),
+                            color: pageColor.withOpacity( 0.12),
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Text(

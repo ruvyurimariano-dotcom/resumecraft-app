@@ -310,7 +310,7 @@ class _ExportScreenState extends State<ExportScreen> {
       color: isSelected
           ? (isDark
               ? const Color(0xFF1E293B)
-              : AppColors.primaryContainer.withValues(alpha: 0.3))
+              : AppColors.primaryContainer.withOpacity( 0.3))
           : null,
       onTap: onTap,
       child: Column(

@@ -104,7 +104,7 @@ class _TemplateGalleryScreenState extends State<TemplateGalleryScreen> {
                                   : const Color(0xFFF1F5F9),
                               borderRadius: BorderRadius.circular(10),
                               border: Border.all(
-                                color: t.defaultPrimaryColor.withValues(alpha: 0.3),
+                                color: t.defaultPrimaryColor.withOpacity( 0.3),
                                 width: 1.2,
                               ),
                             ),

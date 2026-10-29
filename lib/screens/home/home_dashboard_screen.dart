@@ -118,7 +118,7 @@ class HomeDashboardScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.primary.withValues(alpha: 0.28),
+                          color: AppColors.primary.withOpacity( 0.28),
                           blurRadius: 18,
                           offset: const Offset(0, 8),
                         ),
@@ -133,7 +133,7 @@ class HomeDashboardScreen extends StatelessWidget {
                             Container(
                               padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
-                                color: Colors.white.withValues(alpha: 0.2),
+                                color: Colors.white.withOpacity( 0.2),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: const Icon(
@@ -157,7 +157,7 @@ class HomeDashboardScreen extends StatelessWidget {
                         Text(
                           'Choose an ATS-friendly template and create an interview-winning CV in minutes.',
                           style: TextStyle(
-                            color: Colors.white.withValues(alpha: 0.9),
+                            color: Colors.white.withOpacity( 0.9),
                             fontSize: 13.5,
                             height: 1.4,
                           ),
@@ -217,7 +217,7 @@ class HomeDashboardScreen extends StatelessWidget {
                                       color: AppColors.primaryContainer,
                                       borderRadius: BorderRadius.circular(8),
                                       border: Border.all(
-                                        color: AppColors.primary.withValues(alpha: 0.3),
+                                        color: AppColors.primary.withOpacity( 0.3),
                                       ),
                                     ),
                                     child: const Icon(

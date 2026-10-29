@@ -178,9 +178,9 @@ class ProfileScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 color: isDark
                     ? const Color(0xFF1E293B)
-                    : AppColors.primaryContainer.withValues(alpha: 0.4),
+                    : AppColors.primaryContainer.withOpacity( 0.4),
                 border: BorderSide(
-                  color: AppColors.primary.withValues(alpha: 0.3),
+                  color: AppColors.primary.withOpacity( 0.3),
                 ),
                 onTap: () {
                   Navigator.of(context).push(

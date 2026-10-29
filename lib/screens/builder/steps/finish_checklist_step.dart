@@ -69,7 +69,7 @@ class FinishChecklistStep extends StatelessWidget {
           padding: const EdgeInsets.all(24),
           color: isDark
               ? const Color(0xFF1E293B)
-              : AppColors.primaryContainer.withValues(alpha: 0.4),
+              : AppColors.primaryContainer.withOpacity( 0.4),
           child: Column(
             children: [
               Container(
@@ -80,7 +80,7 @@ class FinishChecklistStep extends StatelessWidget {
                   color: isDark ? AppColors.surfaceDark : Colors.white,
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.primary.withValues(alpha: 0.2),
+                      color: AppColors.primary.withOpacity( 0.2),
                       blurRadius: 16,
                       offset: const Offset(0, 6),
                     ),

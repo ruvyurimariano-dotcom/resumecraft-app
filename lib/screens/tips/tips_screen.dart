@@ -142,10 +142,10 @@ Documenting recent certifications, open source contributions, and self-directed 
               decoration: BoxDecoration(
                 color: isDark
                     ? const Color(0xFF1E293B)
-                    : AppColors.primaryContainer.withValues(alpha: 0.4),
+                    : AppColors.primaryContainer.withOpacity( 0.4),
                 borderRadius: BorderRadius.circular(14),
                 border: Border.all(
-                  color: AppColors.primary.withValues(alpha: 0.25),
+                  color: AppColors.primary.withOpacity( 0.25),
                 ),
               ),
               child: Row(
